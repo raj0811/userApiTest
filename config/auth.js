@@ -7,7 +7,7 @@ exports.isAuthenticated=async(req,res,next)=>{
         return res.send('Token Expires')
     }
     try{
-        const decodeToken = jwt.verify(token,secretkey)
+        const decodeToken = jwt.verify(token,process.env.key)
         if(!decodeToken){
             return res.send({success:false,
                 msg:"Invalid Token"})

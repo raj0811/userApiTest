@@ -27,7 +27,7 @@ module.exports.signup=async function(req,res){
 
 
     await user.save()
-    const token = jwt.sign({userId:user._id},secretkey)
+    const token = jwt.sign({userId:user._id},process.env.JWT_KEY)
     res.cookie('token',token,{httpOnly:true})
     
     return res.send({
@@ -52,7 +52,7 @@ module.exports.login=async(req,res)=>{
     if(!isPasswordValidate){
         return res.status(401).json({error:"Invalid Password"})
     }
-    const token = jwt.sign({userId:user._id},secretkey)
+    const token = jwt.sign({userId:user._id},process.env.JWT_KEY)
     res.cookie('token',token,{httpOnly:true})
 
     return res.send({success:true,
