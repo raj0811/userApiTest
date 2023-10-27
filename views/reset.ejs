@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            display: flex;
+            justify-content: center;
+        }
+        .form{
+            display: flex;
+            justify-content: center;
+            margin-top: 4%;
+        }
+        .form form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form input{
+            margin: 2%;
+            height: 5vh;
+            width: 55vh;
+        }
+        button{
+            height: 5vh;
+            width: 20vh;
+            margin: 1%;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="main">
+        <div class="form">
+            <form action="/change-password/<%=userId%>" method="post">
+                <input type="password" name="password" placeholder="Password" id="password">
+                
+                <input type="password" placeholder="Confirm Password" id="confirmPassword">
+                <button type="submit">Change</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
