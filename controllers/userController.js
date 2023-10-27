@@ -76,6 +76,10 @@ module.exports.getUserData=async(req,res)=>{
     }
 }
 
+const crypto = require('crypto');
+
+
+
 module.exports.forgetPassword=async(req,res)=>{
     const {email}= req.body
     if(!email){

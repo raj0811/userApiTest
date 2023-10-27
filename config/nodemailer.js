@@ -7,32 +7,32 @@ let transporter = nodemailer.createTransport(
     port:587,
     secure:false,
     auth:{
-        user:process.env.SMPT_MAI,
-        pass:process.env.SMPT_PASS
+        user:'rpbarmaiya@gmail.com',
+        pass:'gdxtsjkugesvprxx'
     }
 });
 
-// const renderTemplate=(data,templateContent)=>{
-//     return new Promise((resolve,reject)=>{
-//         const mailOption={
-//             from:'rpbarmaiya@gmail.com',
-//             to: data.email,
-//             subject: "Password Reset Link",
+const renderTemplate=(data,templateContent)=>{
+    return new Promise((resolve,reject)=>{
+        const mailOption={
+            from:'rpbarmaiya@gmail.com',
+            to: data.email,
+            subject: "Password Reset Link",
             
-//         }
-//         transporter.sendMail(mailOption,(err,info)=>{
-//             if(err){
-//                 res.send(`Error in sending mial ${err}`)
-//                 reject(err)
-//             }else{
-//                 console.log(`Password reset mail sent: ${info}`);
-//                 resolve()
-//             }
-//         })
-//     })
-// }
+        }
+        transporter.sendMail(mailOption,(err,info)=>{
+            if(err){
+                res.send(`Error in sending mial ${err}`)
+                reject(err)
+            }else{
+                console.log(`Password reset mail sent: ${info}`);
+                resolve()
+            }
+        })
+    })
+}
 
 module.exports={
     transporter:transporter,
-    // renderTemplate:renderTemplate
+    renderTemplate:renderTemplate
 }

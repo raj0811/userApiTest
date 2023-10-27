@@ -9,12 +9,12 @@ exports.resetMail = (email,link)=>{
         from:'rpbarmaiya@gmail.com',
         to:email,
         subject:"Password reset link",
-        html:`<h1> your password reset link2 is ${link} </h1>`
+        html:`<h1> your password reset link is ${link} </h1>`
 
     }
     ,(err,info)=>{
         if(err){
-            console.log('Error in sending mail...');
+            console.log('Error in sending mail...',err);
         }
         console.log(`mail sent ${info}`);
         return
